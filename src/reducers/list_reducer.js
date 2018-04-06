@@ -4,8 +4,11 @@ const DEFAULT_STATE = {
     items: []
  };
 
- export default function( state = DEFAULT_STATE, actions ){
-     switch( actions.type ){
+ export default function( state = DEFAULT_STATE, action ){
+     switch( action.type ){
+         case types.GET_LIST_DATA:
+            console.log("list reducer - get list:", action.payload);
+            return {...state, items: action.payload.data.todos};
         default:
             return state;
      }

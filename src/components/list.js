@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getList } from '../actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class List extends Component{
 
@@ -16,11 +17,21 @@ class List extends Component{
             )
         });
 
+        const style = {
+            height: '60px'
+        }
+
         console.log("props:", this.props)
         return(
-            <ul className="collection">
-                {itemElements}
-            </ul>
+            <div>
+                <div style={style}>
+                    <Link className="btn right" to="/add-item">Add Item</Link>
+                </div>
+                
+                <ul className="collection">
+                    {itemElements}
+                </ul>
+            </div>
         )
     }
 

@@ -13,6 +13,15 @@ export function getList(){
     }
 }
 
+export function getSingleItem(id){
+    const response = axios.get(`${BASE_URL}/todos/${id + API_KEY}`);
+
+    return{
+        type: types.GET_SINGLE_ITEM,
+        payload: response
+    }
+}
+
 export function addNewItem(item){
     const response = axios.post(`${BASE_URL}/todos${API_KEY}`, item);
 
@@ -21,3 +30,13 @@ export function addNewItem(item){
         payload: response
     }
 }
+
+//completed status
+    //add toogle complete btn for completed
+    //delete item
+    //one completed, completed = true, completed get the timestamp of the completion
+//delete item:
+//axios.delete(`${BASE_URL}/todos/${id + API_KEY}`)
+
+//toogle complete:
+//axios.put(`${BASE_URL}/todos/${id + API_KEY}`)
